@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BCA Entrance Exam</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    #timerBox {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="timerBox">
+  Time Left: <span id="time">30:00</span>
+</div>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">BCA Entrance Exam</h2>
+  
+  <form id="examForm" action="submit_exam.php" method="POST">
+
+    <!-- General Awareness -->
+    <h4 class="bg-light p-2">General Awareness</h4>
+    
+    <div class="mb-3">
+      <p>1. Who is the President of India (2024)?</p>
+      <input type="radio" name="ga1" value="a" required> Droupadi Murmu<br>
+      <input type="radio" name="ga1" value="b"> Ram Nath Kovind<br>
+      <input type="radio" name="ga1" value="c"> Pratibha Patil<br>
+    </div>
+    
+    <div class="mb-3">
+      <p>2. What is the capital of Madhya Pradesh?</p>
+      <input type="radio" name="ga2" value="a" required> Bhopal<br>
+      <input type="radio" name="ga2" value="b"> Indore<br>
+      <input type="radio" name="ga2" value="c"> Gwalior<br>
+    </div>
+
+    <!-- Logical Reasoning -->
+    <h4 class="bg-light p-2">Logical Reasoning</h4>
+    
+    <div class="mb-3">
+      <p>3. What comes next in the series? 2, 4, 8, 16, __?</p>
+      <input type="radio" name="lr1" value="a" required> 32<br>
+      <input type="radio" name="lr1" value="b"> 24<br>
+      <input type="radio" name="lr1" value="c"> 30<br>
+    </div>
+    
+    <div class="mb-3">
+      <p>4. Find the odd one out: Apple, Banana, Carrot, Mango</p>
+      <input type="radio" name="lr2" value="a" required> Carrot<br>
+      <input type="radio" name="lr2" value="b"> Mango<br>
+      <input type="radio" name="lr2" value="c"> Banana<br>
+    </div>
+
+    <!-- Quantitative Aptitude (Maths) -->
+    <h4 class="bg-light p-2">Quantitative Aptitude (Maths)</h4>
+    
+    <div class="mb-3">
+      <p>5. What is 15% of 200?</p>
+      <input type="radio" name="math1" value="a" required> 30<br>
+      <input type="radio" name="math1" value="b"> 25<br>
+      <input type="radio" name="math1" value="c"> 20<br>
+    </div>
+    
+    <div class="mb-3">
+      <p>6. Solve: 12 + 15 - 5 = ?</p>
+      <input type="radio" name="math2" value="a" required> 22<br>
+      <input type="radio" name="math2" value="b"> 25<br>
+      <input type="radio" name="math2" value="c"> 30<br>
+    </div>
+
+    <!-- Computer Knowledge -->
+    <h4 class="bg-light p-2">Computer Knowledge</h4>
+    
+    <div class="mb-3">
+      <p>7. What does RAM stand for?</p>
+      <input type="radio" name="ck1" value="a" required> Random Access Memory<br>
+      <input type="radio" name="ck1" value="b"> Read Access Memory<br>
+      <input type="radio" name="ck1" value="c"> Run Access Memory<br>
+    </div>
+    
+    <div class="mb-3">
+      <p>8. Which one is an output device?</p>
+      <input type="radio" name="ck2" value="a" required> Monitor<br>
+      <input type="radio" name="ck2" value="b"> Keyboard<br>
+      <input type="radio" name="ck2" value="c"> Mouse<br>
+    </div>
+
+    <!-- English Language -->
+    <h4 class="bg-light p-2">English Language</h4>
+    
+    <div class="mb-3">
+      <p>9. Select the correct spelling:</p>
+      <input type="radio" name="eng1" value="a" required> Accomodation<br>
+      <input type="radio" name="eng1" value="b"> Accommodation<br>
+      <input type="radio" name="eng1" value="c"> Acommodation<br>
+    </div>
+    
+    <div class="mb-3">
+      <p>10. Synonym of "Happy"?</p>
+      <input type="radio" name="eng2" value="a" required> Sad<br>
+      <input type="radio" name="eng2" value="b"> Joyful<br>
+      <input type="radio" name="eng2" value="c"> Angry<br>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-success w-100">Submit Exam</button>
+
+  </form>
+</div>
+
+<!-- Timer Script -->
+<script>
+  let totalTime = 30 * 60; // 30 minutes in seconds
+  const timerDisplay = document.getElementById('time');
+
+  const interval = setInterval(() => {
+    let minutes = Math.floor(totalTime / 60);
+    let seconds = totalTime % 60;
+    
+    timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    
+    totalTime--;
+
+    if (totalTime < 0) {
+      clearInterval(interval);
+      alert("Time's up! Your exam will be submitted automatically.");
+      document.getElementById('examForm').submit();
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>

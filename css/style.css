@@ -1,0 +1,73 @@
+body {
+font-family: Arial, sans-serif;
+margin: 0%;
+background-color: #e6f7ff; 
+color: #333;
+padding:0%;
+}
+header {
+background-color: #4b0082; 
+color: white;
+padding: 0.9rem;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+}
+.logo {
+height: 60px;
+margin-right: 15px;
+border-radius:50%;
+}
+.students-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+padding: 30px;
+}
+.student-card {
+background: #fff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+text-align: center;
+transition: transform 0.3s;
+}
+.student-card:hover {
+transform: translateY(-5px);
+}
+.student-card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 10%;
+}
+.student-card h3 {
+margin-top: 10px;
+font-size: 22px;
+color: #333;
+}
+.student-card p {
+font-size: 16px;
+color: #777;
+margin-bottom: 10px;
+}
+.student-card a {
+text-decoration: none;
+color: white;
+background-color: #0056b3;
+padding: 8px 16px;
+border-radius: 5px;
+display: inline-block;
+margin-top: 10px;
+}
+.student-card a:hover {
+background-color: #003366;
+}
+footer {
+background-color: #4b0082; 
+color: white;
+text-align: center;
+padding: 1rem;
+}
